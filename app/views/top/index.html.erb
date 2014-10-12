@@ -9,20 +9,19 @@
 </div>
 
 <p>検索結果</p>
+<% dvClose=false %>
+<% @shikakus.each.with_index(1) do |shikaku,i| %>
+<% if i%3==1 then %>
+<% dvClose=false %>
 <div class="btn-group btn-group-justified">
-  <a href="#" class="btn btn-default">Left</a>
-  <a href="#" class="btn btn-default">Middle</a>
-  <a href="#" class="btn btn-default">Right</a>
+<% end %>
+  <a href="#" class="btn btn-default"><%= shikaku.title %></a>
+<% if i%3==0 then %>
 </div>
-<div class="btn-group btn-group-justified">
-  <a href="#" class="btn btn-default">Left</a>
-  <a href="#" class="btn btn-default">Middle</a>
-  <a href="#" class="btn btn-default">Right</a>
+<% dvClose=true %>
+<% end %>
+<% end %>
+<% if dvClose==false then %>
 </div>
-<div class="btn-group btn-group-justified">
-  <a href="#" class="btn btn-default">Left</a>
-  <a href="#" class="btn btn-default">Right</a>
-</div>
-<div class="btn-group btn-group-justified">
-  <a href="#" class="btn btn-default">Left</a>
-</div>
+<% end %>
+
