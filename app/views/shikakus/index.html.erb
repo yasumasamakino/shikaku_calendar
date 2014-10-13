@@ -1,0 +1,27 @@
+<h1>Listing shikakus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Detail</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shikakus.each do |shikaku| %>
+      <tr>
+        <td><%= shikaku.title %></td>
+        <td><%= shikaku.detail %></td>
+        <td><%= link_to 'Show', shikaku %></td>
+        <td><%= link_to 'Edit', edit_shikaku_path(shikaku) %></td>
+        <td><%= link_to 'Destroy', shikaku, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shikaku', new_shikaku_path %>

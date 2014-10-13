@@ -1,13 +1,13 @@
 <div class="form-group">
   <label class="control-label">キーワード検索</label>
   <div class="input-group">
-    <input type="text" class="form-control">
-    <span class="input-group-btn">
+    <input type="text" class="form-control" id="keywords" value="<%=@keywords%>" >
+    <span class="input-group-btn" id="searchBtn" onclick="search();">
       <button class="btn btn-default" type="button">検索</button>
     </span>
   </div>
 </div>
-
+<%= @param %>
 <p>検索結果</p>
 <% dvClose=false %>
 <% @shikakus.each.with_index(1) do |shikaku,i| %>
@@ -15,7 +15,7 @@
 <% dvClose=false %>
 <div class="btn-group btn-group-justified">
 <% end %>
-  <a href="#" class="btn btn-default"><%= shikaku.title %></a>
+  <a href="/shikaku/<%= shikaku.id %>" class="btn btn-default"><%= shikaku.title %></a>
 <% if i%3==0 then %>
 </div>
 <% dvClose=true %>
@@ -25,3 +25,9 @@
 </div>
 <% end %>
 
+<script type="text/javascript">
+function search() {
+	var keywords = encodeURI(document.getElementById("keywords").value);
+	location.href = "/?q=" + keywords;
+}
+</script>
