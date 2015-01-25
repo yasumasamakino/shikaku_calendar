@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'twitter-bootswatch-rails', '~> 3.1.1'
 gem 'twitter-bootswatch-rails-helpers'
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use mysql as the database for Active Record
@@ -40,3 +43,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :staging, :product do
+  gem 'unicorn'
+end
+
+group :development do
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+end
