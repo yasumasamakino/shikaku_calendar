@@ -20,8 +20,14 @@ default: &default
   database: shikaku
 
 staging:
-  <<: *default
-  socket: /var/lib/mysql/mysql.sock
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: shikaku 
+  password: shikaku
+  charset: utf8
+  collation: utf8_general_ci
+  database: shikaku
 
 development:
   <<: *default
