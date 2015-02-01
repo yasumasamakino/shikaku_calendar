@@ -4,9 +4,11 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-#role :app, %w{deploy@example.com}
-#role :web, %w{deploy@example.com}
-#role :db,  %w{deploy@example.com}
+role :app, %w{ops@192.168.33.10}
+role :web, %w{ops@192.168.33.10}
+role :db,  %w{ops@192.168.33.10}
+
+set :rails_env, :staging
 
 
 # Extended Server Syntax
@@ -15,7 +17,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-#server '127.0.0.1', user: 'vagrant', roles: %w{web app db}, my_property: :my_value
+#server '192.168.33.10', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 
 # Custom SSH Options
@@ -33,14 +35,13 @@
 #
 # And/or per server (overrides global)
 # ------------------------------------
- server '192.168.33.10',
-   port:2222
-   user:'vagrant',
-   roles: %w{web app db},
-   ssh_options: {
-     user:'vagrant', # overrides user setting above
-     keys: %w(/Users/yasumasa/.vagrant.d/insecure_private_key),
-     forward_agent: false,
-     auth_methods: %w(publickey)
-     # password: 'please use keys'
-   }
+# server 'example.com',
+#   user: 'user_name',
+#   roles: %w{web app},
+#   ssh_options: {
+#     user: 'user_name', # overrides user setting above
+#     keys: %w(/home/user_name/.ssh/id_rsa),
+#     forward_agent: false,
+#     auth_methods: %w(publickey password)
+#     # password: 'please use keys'
+#   }

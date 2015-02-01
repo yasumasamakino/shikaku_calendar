@@ -48,9 +48,9 @@ group :staging, :product do
 end
 
 group :development do
-  gem 'capistrano', '~> 3.2.0'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'capistrano-rbenv'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-rbenv'
 end
