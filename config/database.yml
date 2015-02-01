@@ -15,17 +15,17 @@ default: &default
   pool: 5
   username: shikaku 
   password: shikaku
-  socket: /tmp/mysql.sock
   charset: utf8
   collation: utf8_general_ci
+  database: shikaku
 
 staging:
   <<: *default
-  database: shikaku
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
-  database: shikaku
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
